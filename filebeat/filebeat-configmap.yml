@@ -9,9 +9,10 @@ metadata:
 data:
   kubernetes.yml: |-
     - input_type: log
-      json.message_key: log
       paths:
         - /var/lib/docker/containers/*/*.log
+      json.message_key: log
+      json.keys_under_root: true
       processors:
         - add_kubernetes_metadata:
             in_cluster: true

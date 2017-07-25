@@ -19,5 +19,5 @@ This is the list officially supported Beats, with manifests:
 This repository contains manifests files for:
 
 Beat | Description
---- | ---
- [filebeat](filebeat)|Tails and ships logs
+---- | ----
+[filebeat](filebeat) | Tails and ships logs
