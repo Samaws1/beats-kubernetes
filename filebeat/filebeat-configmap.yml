@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/cluster-service: "true"
 data:
   kubernetes.yml: |-
-    - input_type: log
+    - type: log
       paths:
         - /var/lib/docker/containers/*/*.log
       json.message_key: log

@@ -16,7 +16,7 @@ spec:
       securityContext:
         runAsUser: 0
       containers:
-      - name: kubernetes
+      - name: filebeat
         image: docker.elastic.co/beats/filebeat:6.0.0-beta1
         args: [
           "-e",
@@ -34,6 +34,8 @@ spec:
         - name: prospectors
           mountPath: /usr/share/filebeat/prospectors.d
           readOnly: true
+        - name: data
+          mountPath: /usr/share/filebeat/data
         - name: varlibdockercontainers
           mountPath: /var/lib/docker/containers
           readOnly: true
@@ -46,3 +48,5 @@ spec:
         configMap:
           defaultMode: 0600
           name: filebeat-prospectors
+      - name: data
+        emptyDir: {}
