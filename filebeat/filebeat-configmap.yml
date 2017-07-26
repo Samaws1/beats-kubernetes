@@ -16,4 +16,4 @@ data:
       processors:
         - add_kubernetes_metadata:
             in_cluster: true
-            namespace: kube-system
+            namespace: ${POD_NAMESPACE}
