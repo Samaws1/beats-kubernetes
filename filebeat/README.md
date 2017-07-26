@@ -23,10 +23,10 @@ updating YAML manifests under this folder.
 
 We use official [Beats Docker images](https://github.com/elastic/beats-docker),
 as they allow external files configuration, a [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
-is used for kubernetes specific settings. Check [filebeat-configmap.yml](filebeat-configmap.yml)
+is used for kubernetes specific settings. Check [filebeat-configmap.yaml](filebeat-configmap.yaml)
 for details.
 
-Also, [filebeat-daemonset.yml](filebeat-daemonset.yml) uses a set of environment
+Also, [filebeat-daemonset.yaml](filebeat-daemonset.yaml) uses a set of environment
 variables to configure Elasticsearch output:
 
 Variable | Default | Description
