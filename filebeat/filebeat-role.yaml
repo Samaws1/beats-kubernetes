@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: filebeat
+  labels:
+    k8s-app: filebeat-logging
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources:
+  - pods
+  - namespaces
+  verbs:
+  - get
+  - watch
+  - list

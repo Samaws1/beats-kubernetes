@@ -13,6 +13,7 @@ spec:
         k8s-app: filebeat-logging
         kubernetes.io/cluster-service: "true"
     spec:
+      serviceAccountName: filebeat
       containers:
       - name: filebeat
         image: docker.elastic.co/beats/filebeat:6.0.0-beta1
