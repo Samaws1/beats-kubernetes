@@ -1,7 +1,7 @@
 # Filebeat
 
 Filebeat is an open source file harvester, mostly used to fetch logs files and
-feed them into Elasticsearch.
+feed them to Elasticsearch or Logstash.
 
 To learn more about Filebeat, check out https://www.elastic.co/products/beats/filebeat.
 

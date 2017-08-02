@@ -4,16 +4,17 @@ metadata:
   name: filebeat
   namespace: kube-system
   labels:
-    k8s-app: filebeat-logging
+    k8s-app: filebeat
     kubernetes.io/cluster-service: "true"
 spec:
   template:
     metadata:
       labels:
-        k8s-app: filebeat-logging
+        k8s-app: filebeat
         kubernetes.io/cluster-service: "true"
     spec:
       serviceAccountName: filebeat
+      terminationGracePeriodSeconds: 30
       containers:
       - name: filebeat
         image: docker.elastic.co/beats/filebeat:6.0.0-beta1
@@ -49,7 +50,6 @@ spec:
         - name: varlibdockercontainers
           mountPath: /var/lib/docker/containers
           readOnly: true
-      terminationGracePeriodSeconds: 30
       volumes:
       - name: varlibdockercontainers
         hostPath:

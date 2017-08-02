@@ -4,7 +4,7 @@ metadata:
   name: filebeat-prospectors
   namespace: kube-system
   labels:
-    k8s-app: filebeat-logging
+    k8s-app: filebeat
     kubernetes.io/cluster-service: "true"
 data:
   kubernetes.yml: |-

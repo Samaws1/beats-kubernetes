@@ -3,7 +3,7 @@ kind: ClusterRole
 metadata:
   name: filebeat
   labels:
-    k8s-app: filebeat-logging
+    k8s-app: filebeat
 rules:
 - apiGroups: [""] # "" indicates the core API group
   resources:
