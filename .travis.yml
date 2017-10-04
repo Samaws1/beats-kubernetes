@@ -1,9 +1,11 @@
 sudo: required
 env:
   global:
-    - TRAVIS_ETCD_VERSION=v3.0.17
+    - TRAVIS_ETCD_VERSION=v3.2.8
   matrix:
-    - TRAVIS_KUBE_VERSION=v1.6.2
+    - TRAVIS_KUBE_VERSION=v1.6.11
+    - TRAVIS_KUBE_VERSION=v1.7.7
+    - TRAVIS_KUBE_VERSION=v1.8.0
 services:
   - docker
 before_install:
