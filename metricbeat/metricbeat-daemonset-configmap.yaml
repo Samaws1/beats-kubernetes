@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: metricbeat-modules
+  name: metricbeat-daemonset-modules
   namespace: kube-system
   labels:
     k8s-app: metricbeat

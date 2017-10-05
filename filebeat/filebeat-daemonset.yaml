@@ -20,7 +20,7 @@ spec:
         image: docker.elastic.co/beats/filebeat:6.0.0-beta1
         args: [
           "-e",
-          "-E", "output.elasticsearch.hosts=['$(ELASTICSEARCH_SERVICE_HOST):$(ELASTICSEARCH_SERVICE_PORT)']",
+          "-E", "output.elasticsearch.hosts=['$(ELASTICSEARCH_HOST):$(ELASTICSEARCH_PORT)']",
           "-E", "output.elasticsearch.username=$(ELASTICSEARCH_USERNAME)",
           "-E", "output.elasticsearch.password=$(ELASTICSEARCH_PASSWORD)",
         ]
@@ -29,6 +29,10 @@ spec:
           value: elastic
         - name: ELASTICSEARCH_PASSWORD
           value: changeme
+        - name: ELASTICSEARCH_HOST
+          value: elasticsearch
+        - name: ELASTICSEARCH_PORT
+          value: "9200"
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:

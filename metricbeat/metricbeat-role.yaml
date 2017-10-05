@@ -7,8 +7,9 @@ metadata:
 rules:
 - apiGroups: [""] # "" indicates the core API group
   resources:
-  - pods
   - namespaces
+  - events
+  - pods
   verbs:
   - get
   - watch
