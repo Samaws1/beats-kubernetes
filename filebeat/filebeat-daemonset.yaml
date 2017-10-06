@@ -19,20 +19,18 @@ spec:
       - name: filebeat
         image: docker.elastic.co/beats/filebeat:6.0.0-beta1
         args: [
+          "-c", "/etc/filebeat.yml",
           "-e",
-          "-E", "output.elasticsearch.hosts=['$(ELASTICSEARCH_HOST):$(ELASTICSEARCH_PORT)']",
-          "-E", "output.elasticsearch.username=$(ELASTICSEARCH_USERNAME)",
-          "-E", "output.elasticsearch.password=$(ELASTICSEARCH_PASSWORD)",
         ]
         env:
-        - name: ELASTICSEARCH_USERNAME
-          value: elastic
-        - name: ELASTICSEARCH_PASSWORD
-          value: changeme
         - name: ELASTICSEARCH_HOST
           value: elasticsearch
         - name: ELASTICSEARCH_PORT
           value: "9200"
+        - name: ELASTICSEARCH_USERNAME
+          value: elastic
+        - name: ELASTICSEARCH_PASSWORD
+          value: changeme
         - name: POD_NAMESPACE
           valueFrom:
             fieldRef:
@@ -46,6 +44,10 @@ spec:
             cpu: 100m
             memory: 100Mi
         volumeMounts:
+        - name: config
+          mountPath: /etc/filebeat.yml
+          readOnly: true
+          subPath: filebeat.yml
         - name: prospectors
           mountPath: /usr/share/filebeat/prospectors.d
           readOnly: true
@@ -55,6 +57,10 @@ spec:
           mountPath: /var/lib/docker/containers
           readOnly: true
       volumes:
+      - name: config
+        configMap:
+          defaultMode: 0600
+          name: filebeat-config
       - name: varlibdockercontainers
         hostPath:
           path: /var/lib/docker/containers
